@@ -7,32 +7,38 @@
   <meta name="description" content="South African IT solutions provider specializing in software development, web applications, cloud solutions, and digital transformation services.">
   
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="logo.png" type="image/png">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <style>
     /* Base styles */
     :root {
-      --primary-color: #0284c7;
-      --primary-hover: #0369a1;
-      --accent-color: #14b8a6;
-      --accent-hover: #0d9488;
+      --primary-color: #0a4da2;
+      --primary-hover: #083b7e;
+      --accent-color: #0f9e8a;
+      --accent-hover: #0b8a78;
       --background-color: #ebe9e8;
-      --text-color: #1f2937;
-      --text-light: #6b7280;
+      --text-color: #1a1a1a;
+      --text-light: #555555;
       --white: #ffffff;
+      --off-white: #f8f8f8;
       --gray-100: #f3f4f6;
       --gray-200: #e5e7eb;
       --gray-800: #1f2937;
       --gray-900: #111827;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.15);
+      --radius-sm: 0.25rem;
       --radius: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     * {
@@ -44,8 +50,9 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text-color);
-      line-height: 1.5;
+      line-height: 1.6;
       background-color: var(--background-color);
+      font-weight: 400;
     }
     
     img {
@@ -56,6 +63,7 @@
     a {
       text-decoration: none;
       color: inherit;
+      transition: var(--transition);
     }
     
     ul {
@@ -65,25 +73,28 @@
     /* Container */
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
     
     /* Typography */
     h1, h2, h3, h4, h5, h6 {
       font-weight: 700;
       line-height: 1.2;
+      letter-spacing: -0.02em;
     }
     
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.75rem;
+      margin-bottom: 1.25rem;
+      font-family: 'Playfair Display', serif;
     }
     
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.25rem;
+      margin-bottom: 1.25rem;
+      font-family: 'Playfair Display', serif;
     }
     
     h3 {
@@ -92,90 +103,128 @@
     }
     
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
     }
     
     /* Buttons */
     .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.75rem;
       border-radius: var(--radius);
       font-weight: 500;
       text-align: center;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+      z-index: -1;
+    }
+    
+    .btn:hover::after {
+      height: 100%;
     }
     
     .btn-primary {
-      background-color: var(--accent-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       color: var(--white);
+      box-shadow: 0 4px 12px rgba(10, 77, 162, 0.2);
     }
     
     .btn-primary:hover {
-      background-color: var(--accent-hover);
-      transform: scale(1.05);
-      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(10, 77, 162, 0.3);
     }
     
     .btn-outline {
       background-color: transparent;
-      color: var(--accent-color);
-      border: 1px solid var(--accent-color);
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      box-shadow: 0 2px 8px rgba(10, 77, 162, 0.1);
     }
     
     .btn-outline:hover {
-      background-color: rgba(20, 184, 166, 0.1);
-      transform: scale(1.05);
+      background-color: rgba(10, 77, 162, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(10, 77, 162, 0.15);
     }
     
     .btn-white {
       background-color: var(--white);
       color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .btn-white:hover {
-      background-color: var(--gray-100);
-      transform: scale(1.05);
-      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
     
     .btn-lg {
-      padding: 1rem 2rem;
+      padding: 1.125rem 2.25rem;
       font-size: 1.125rem;
+    }
+    
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     
     /* Header */
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
       z-index: 50;
       width: 100%;
-      border-bottom: 1px solid var(--gray-200);
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
     
     header.transparent {
       background-color: transparent;
-      border-bottom: none;
     }
     
     header.scrolled {
-      box-shadow: var(--shadow-sm);
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
     
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 4rem;
+      height: 5rem;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
     
     .logo img {
@@ -189,17 +238,33 @@
     
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
     
     nav a {
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       font-weight: 500;
-      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
     }
     
     nav a:hover, nav a.active {
-      color: var(--accent-color);
+      color: var(--primary-color);
     }
     
     .mobile-menu-btn {
@@ -208,19 +273,20 @@
       border: none;
       cursor: pointer;
       padding: 0.5rem;
+      color: var(--text-color);
     }
     
     .mobile-menu {
-      position: absolute;
-      top: 4rem;
+      position: fixed;
+      top: 5rem;
       left: 0;
       width: 100%;
+      height: calc(100vh - 5rem);
       background-color: var(--white);
-      border-top: 1px solid var(--gray-200);
-      padding: 1rem;
-      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
       display: none;
-      animation: slideDown 0.3s ease;
+      animation: fadeIn 0.3s ease;
+      overflow-y: auto;
     }
     
     .mobile-menu.active {
@@ -230,38 +296,66 @@
     .mobile-menu ul {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
     }
     
     .mobile-menu a {
       display: block;
-      padding: 0.5rem 0;
+      padding: 0.75rem 0;
       font-weight: 500;
+      font-size: 1.125rem;
+      border-bottom: 1px solid var(--gray-200);
     }
     
     /* Hero Section */
     .hero {
       position: relative;
-      padding: 5rem 0;
+      padding: 10rem 0 6rem;
       overflow: hidden;
       background-color: var(--background-color);
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(10, 77, 162, 0.05) 0%, transparent 400px),
+        radial-gradient(circle at 80% 70%, rgba(15, 158, 138, 0.05) 0%, transparent 400px);
     }
     
     .hero-content {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
       align-items: center;
     }
     
     .hero-text h1 {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
     .hero-text p {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       color: var(--text-light);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 36rem;
+    }
+    
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-lg);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-color);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(4px);
     }
     
     .hero-image {
@@ -273,9 +367,11 @@
     .hero-image-bg {
       position: absolute;
       inset: 0;
-      background-color: rgba(2, 132, 199, 0.1);
-      border-radius: 1rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(4px);
     }
     
     .hero-image-circle1 {
@@ -284,9 +380,9 @@
       bottom: -5rem;
       width: 16rem;
       height: 16rem;
-      background-color: rgba(20, 184, 166, 0.2);
+      background: linear-gradient(135deg, rgba(15, 158, 138, 0.2), rgba(10, 77, 162, 0.2));
       border-radius: 50%;
-      animation: pulse 4s infinite;
+      animation: pulse 6s infinite;
     }
     
     .hero-image-circle2 {
@@ -295,9 +391,9 @@
       top: -2.5rem;
       width: 10rem;
       height: 10rem;
-      background-color: rgba(2, 132, 199, 0.2);
+      background: linear-gradient(135deg, rgba(10, 77, 162, 0.2), rgba(15, 158, 138, 0.2));
       border-radius: 50%;
-      animation: pulse 4s infinite 1s;
+      animation: pulse 6s infinite 2s;
     }
     
     .hero-image-logo {
@@ -311,16 +407,17 @@
     .hero-image-logo img {
       height: 11rem;
       width: auto;
-      transition: transform 0.5s ease;
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     
     .hero-image-logo img:hover {
-      transform: rotate(12deg);
+      transform: rotate(12deg) scale(1.05);
     }
     
     /* Sections */
     section {
-      padding: 4rem 0;
+      padding: 6rem 0;
+      position: relative;
     }
     
     section.bg-white {
@@ -332,72 +429,89 @@
     }
     
     section.bg-primary {
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       color: var(--white);
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .section-header h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
     
     .section-header .divider {
       height: 4px;
       width: 5rem;
-      background-color: var(--accent-color);
-      margin: 0 auto 1.5rem;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      margin: 0 auto 1.75rem;
+      border-radius: 2px;
     }
     
     .section-header p {
-      max-width: 36rem;
-      margin: 0 auto;
       color: var(--text-light);
+      font-size: 1.125rem;
+      font-weight: 300;
     }
     
     /* Cards */
     .card {
       background-color: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem;
-      transition: all 0.3s ease;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     
     .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
     
     .card-icon {
-      width: 3rem;
-      height: 3rem;
-      background-color: var(--primary-color);
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       color: var(--white);
+      box-shadow: 0 4px 12px rgba(10, 77, 162, 0.2);
     }
     
     .card-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
     }
     
     .card-text {
       color: var(--text-light);
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    
+    .card-footer {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
     }
     
     /* Grid */
     .grid {
       display: grid;
-      gap: 1.5rem;
+      gap: 2rem;
     }
     
     .grid-cols-1 {
@@ -406,95 +520,169 @@
     
     /* Info Cards */
     .info-card {
-      background-color: var(--background-color);
-      border-radius: var(--radius);
-      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-md);
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+      box-shadow: var(--shadow);
+      height: 100%;
     }
     
     .info-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
     
     /* Team */
     .team-card {
       background-color: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem;
-      transition: all 0.3s ease;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
     }
     
     .team-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
     
     .team-header {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
     }
     
     .team-avatar {
-      width: 4rem;
-      height: 4rem;
-      background-color: var(--primary-color);
+      width: 5rem;
+      height: 5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--white);
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(10, 77, 162, 0.2);
     }
     
     .team-info h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.375rem;
+      margin-bottom: 0.5rem;
     }
     
     .team-position {
       color: var(--primary-color);
-      font-size: 0.875rem;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
     }
     
     .team-skills {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--text-light);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
     }
     
     .team-location {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--text-light);
+    }
+    
+    /* Freelance Section */
+    .freelance-section {
+      background-color: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 3rem;
+      margin: 4rem auto;
+      max-width: 64rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .freelance-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+    
+    .freelance-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .freelance-text h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .freelance-text p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .freelance-list {
+      margin-bottom: 2rem;
+    }
+    
+    .freelance-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+    }
+    
+    .freelance-list li svg {
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      color: var(--accent-color);
     }
     
     /* Footer */
     footer {
       background-color: var(--gray-900);
       color: var(--gray-200);
-      padding: 3rem 0;
+      padding: 5rem 0 2rem;
+      position: relative;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     }
     
     .footer-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
     }
     
     .footer-logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
     
     .footer-logo img {
@@ -504,22 +692,36 @@
     }
     
     .footer-about {
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      opacity: 0.8;
     }
     
     .footer-heading {
       color: var(--white);
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
     }
     
     .footer-contact li {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.875rem;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-contact li:hover {
+      opacity: 1;
+    }
+    
+    .footer-contact svg {
+      flex-shrink: 0;
+      margin-top: 0.25rem;
     }
     
     .footer-contact a:hover {
@@ -527,62 +729,66 @@
     }
     
     .footer-links li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
     
     .footer-links a {
-      font-size: 0.875rem;
-      transition: color 0.3s ease;
+      font-size: 0.9375rem;
+      opacity: 0.8;
+      transition: var(--transition);
     }
     
     .footer-links a:hover {
       color: var(--white);
+      opacity: 1;
     }
     
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 2rem;
+      margin-top: 3rem;
       padding-top: 2rem;
       text-align: center;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
+      opacity: 0.6;
     }
     
     /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
     
     @keyframes pulse {
       0%, 100% {
-        opacity: 0.2;
+        opacity: 0.3;
+        transform: scale(1);
       }
       50% {
-        opacity: 0.4;
-      }
-    }
-    
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 0.5;
+        transform: scale(1.05);
       }
     }
     
     .fade-in-up {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .fade-in-up.animate {
@@ -593,7 +799,11 @@
     /* Responsive */
     @media (min-width: 768px) {
       h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
       }
       
       nav {
@@ -605,7 +815,7 @@
       }
       
       .hero {
-        padding: 8rem 0;
+        padding: 12rem 0 8rem;
       }
       
       .hero-content {
@@ -631,6 +841,10 @@
       .footer-grid {
         grid-template-columns: 2fr 1fr 1fr;
       }
+      
+      .freelance-content {
+        grid-template-columns: 1fr 1fr;
+      }
     }
     
     @media (min-width: 1024px) {
@@ -639,14 +853,22 @@
       }
       
       h1 {
-        font-size: 3.5rem;
+        font-size: 4rem;
+      }
+      
+      h2 {
+        font-size: 3rem;
+      }
+      
+      .hero {
+        padding: 14rem 0 10rem;
       }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header id="header">
+  <header id="header" class="transparent">
     <div class="container header-container">
       <div class="logo">
         <img src="logo.png" alt="ON2Tech Logo">
@@ -656,6 +878,7 @@
         <ul>
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#freelance" class="nav-link">Freelance</a></li>
           <li><a href="#team" class="nav-link">Team</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -674,10 +897,11 @@
       <ul>
         <li><a href="#hero" class="mobile-nav-link">Home</a></li>
         <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#freelance" class="mobile-nav-link">Freelance</a></li>
         <li><a href="#team" class="mobile-nav-link">Team</a></li>
         <li><a href="#about" class="mobile-nav-link">About</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        <li><a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get in Touch</a></li>
+        <li><a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Get in Touch</a></li>
       </ul>
     </div>
   </header>
@@ -688,12 +912,48 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-text fade-in-up">
-            <img src="name.png" alt="ON2Tech" style="height: 4rem; width: auto; margin-bottom: 1.5rem;">
-            <h1>Smart Software. Secure Solutions.</h1>
-            <p>We build secure, scalable software solutions that power government and enterprise digital transformation.</p>
-            <a href="#services" class="btn btn-primary btn-lg">Explore Our Services</a>
+            <img src="name.png" alt="ON2Tech" style="height: 4.5rem; width: auto; margin-bottom: 2rem;">
+            <h1>Smart Software. <span class="text-gradient">Secure Solutions.</span></h1>
+            <p>We build secure, scalable software solutions that power government and enterprise digital transformation. Our team also offers premium freelance services for specialized projects.</p>
+            <a href="#services" class="btn btn-primary btn-lg btn-icon">
+              Explore Our Services
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </a>
+            <div class="hero-badges">
+              <div class="badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                B-BBEE Level 1
+              </div>
+              <div class="badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                CSD Registered
+              </div>
+              <div class="badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v8" />
+                  <path d="m4.93 10.93 1.41 1.41" />
+                  <path d="M2 18h2" />
+                  <path d="M20 18h2" />
+                  <path d="m19.07 10.93-1.41 1.41" />
+                  <path d="M22 22H2" />
+                  <path d="m16 6-4 4-4-4" />
+                  <path d="M16 18a4 4 0 0 0-8 0" />
+                </svg>
+                Cloud-native
+              </div>
+            </div>
           </div>
-          <div class="hero-image fade-in-up">
+          <div class="hero-image fade-in-up" data-delay="0.3">
             <div class="hero-image-bg">
               <div class="hero-image-circle1"></div>
               <div class="hero-image-circle2"></div>
@@ -710,7 +970,7 @@
     <section id="about" class="bg-white">
       <div class="container">
         <div class="section-header fade-in-up">
-          <h2>Company Overview</h2>
+          <h2>Company <span class="text-gradient">Overview</span></h2>
           <div class="divider"></div>
           <p>
             ON2Tech (Pty) Ltd is a South African-based IT solutions provider (Reg No: 2025/298759/07) specializing in software development, web applications, cloud solutions, and digital transformation services. With a B-BBEE Level 1 certification and CSD registration, we're equipped to support government and enterprise clients with secure, scalable, and innovative IT solutions.
@@ -745,7 +1005,7 @@
               </svg>
             </div>
             <h3>Website</h3>
-            <a href="http://on2tec.co.za" class="card-text" style="color: var(--primary-color);">on2tec.co.za</a>
+            <a href="http://on2tec.co.za" class="card-text" style="color: var(--primary-color); font-weight: 500;">on2tec.co.za</a>
           </div>
         </div>
       </div>
@@ -755,10 +1015,10 @@
     <section id="services" class="bg-gray">
       <div class="container">
         <div class="section-header fade-in-up">
-          <h2>Core Services</h2>
+          <h2>Core <span class="text-gradient">Services</span></h2>
           <div class="divider"></div>
           <p>
-            We provide comprehensive IT solutions tailored to meet the unique needs of government and enterprise clients.
+            We provide comprehensive IT solutions tailored to meet the unique needs of government and enterprise clients, with both full-service and freelance options available.
           </p>
         </div>
         <div class="grid grid-cols-1 grid-cols-3">
@@ -770,7 +1030,11 @@
               </svg>
             </div>
             <h3 class="card-title">Custom Software Development</h3>
-            <p class="card-text">Tailored solutions for government and enterprise needs.</p>
+            <p class="card-text">Tailored solutions for government and enterprise needs. Our expert developers create bespoke applications that solve your unique business challenges.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
           <div class="card fade-in-up" data-delay="0.1">
             <div class="card-icon">
@@ -781,7 +1045,11 @@
               </svg>
             </div>
             <h3 class="card-title">Web Application Development</h3>
-            <p class="card-text">Modern, user-friendly web platforms.</p>
+            <p class="card-text">Modern, user-friendly web platforms built with cutting-edge technologies. We create responsive, accessible, and high-performance web applications.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
           <div class="card fade-in-up" data-delay="0.2">
             <div class="card-icon">
@@ -790,7 +1058,11 @@
               </svg>
             </div>
             <h3 class="card-title">Cloud Solutions</h3>
-            <p class="card-text">Scalable cloud computing, hosting, and migration.</p>
+            <p class="card-text">Scalable cloud computing, hosting, and migration services. Our cloud experts help you leverage the full potential of cloud infrastructure.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
           <div class="card fade-in-up" data-delay="0.3">
             <div class="card-icon">
@@ -800,7 +1072,10 @@
               </svg>
             </div>
             <h3 class="card-title">Cybersecurity & Data Protection</h3>
-            <p class="card-text">Safeguarding sensitive data and systems.</p>
+            <p class="card-text">Safeguarding sensitive data and systems with advanced security protocols. We implement robust security measures to protect your digital assets.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+            </div>
           </div>
           <div class="card fade-in-up" data-delay="0.4">
             <div class="card-icon">
@@ -809,7 +1084,11 @@
               </svg>
             </div>
             <h3 class="card-title">IT Consulting & Support</h3>
-            <p class="card-text">Strategic guidance and expert support.</p>
+            <p class="card-text">Strategic guidance and expert support for your technology needs. Our consultants provide insights to optimize your IT infrastructure and operations.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
           <div class="card fade-in-up" data-delay="0.5">
             <div class="card-icon">
@@ -827,23 +1106,134 @@
               </svg>
             </div>
             <h3 class="card-title">E-Government Solutions</h3>
-            <p class="card-text">Digital platforms to improve public service delivery.</p>
+            <p class="card-text">Digital platforms to improve public service delivery. We develop specialized solutions that enhance government operations and citizen services.</p>
+            <div class="card-footer">
+              <span class="badge">Enterprise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Freelance Section -->
+    <section id="freelance" class="bg-white">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <h2>Premium <span class="text-gradient">Freelance Services</span></h2>
+          <div class="divider"></div>
+          <p>
+            Our team of expert professionals is available for specialized freelance projects, bringing enterprise-grade expertise to businesses of all sizes.
+          </p>
+        </div>
+        
+        <div class="freelance-section fade-in-up">
+          <div class="freelance-content">
+            <div class="freelance-text">
+              <h3>Why Choose Our Freelance Services?</h3>
+              <p>
+                ON2Tech offers premium freelance services for clients who need specialized expertise without committing to a full-scale enterprise engagement. Our freelance professionals bring the same level of quality, security, and innovation to your projects.
+              </p>
+              <ul class="freelance-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Access to highly skilled professionals with enterprise experience</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Flexible engagement models tailored to your project needs</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Cost-effective solutions without compromising on quality</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Rapid deployment and quick turnaround times</span>
+                </li>
+              </ul>
+              <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+            </div>
+            <div class="freelance-image">
+              <div style="background-color: var(--background-color); border-radius: var(--radius-lg); padding: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <h4 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Available Freelance Specialties:</h4>
+                <ul style="display: grid; gap: 1rem;">
+                  <li style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 2rem; height: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                      </svg>
+                    </div>
+                    <span>Full-stack Development</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 2rem; height: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                      </svg>
+                    </div>
+                    <span>Cloud Architecture & DevOps</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 2rem; height: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </div>
+                    <span>Security Consulting</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 2rem; height: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" x2="22" y1="12" y2="12" />
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </svg>
+                    </div>
+                    <span>UI/UX Design</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 2rem; height: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        <polyline points="3.29 7 12 12 20.71 7" />
+                        <line x1="12" y1="22" y2="12" />
+                      </svg>
+                    </div>
+                    <span>Data Engineering & Analytics</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Meet the Team -->
-    <section id="team" class="bg-white">
+    <section id="team" class="bg-gray">
       <div class="container">
         <div class="section-header fade-in-up">
-          <h2>Meet the Team</h2>
+          <h2>Meet the <span class="text-gradient">Team</span></h2>
           <div class="divider"></div>
           <p>
-            Our team of experts is dedicated to delivering innovative solutions and exceptional service.
+            Our team of experts is dedicated to delivering innovative solutions and exceptional service, both for enterprise clients and freelance projects.
           </p>
         </div>
-        <div class="grid grid-cols-1 grid-cols-2" style="max-width: 800px; margin: 0 auto;">
+        <div class="grid grid-cols-1 grid-cols-2" style="max-width: 900px; margin: 0 auto;">
           <div class="team-card fade-in-up">
             <div class="team-header">
               <div class="team-avatar">ON</div>
@@ -854,6 +1244,10 @@
             </div>
             <p class="team-skills">AWS Certified | Infrastructure as Code | DevOps | Python | Well-Architected Reviews</p>
             <p class="team-location">Based in Johannesburg</p>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
           <div class="team-card fade-in-up" data-delay="0.2">
             <div class="team-header">
@@ -863,18 +1257,22 @@
                 <p class="team-position">Software Engineer</p>
               </div>
             </div>
-            <p class="team-skills">Results-oriented Software Engineer offering a valuable combination of software development proficiency (C#, Python, Angular) and insightful Business Intelligence capabilities (SQL, SSRS, Power BI). Experienced in delivering impactful solutions across varied industries.</p>
+            <p class="team-skills">C#, Python, Angular, SQL, SSRS, PowerBI</p>
             <p class="team-location">Based in Durban</p>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+              <span class="badge">Enterprise</span>
+              <span class="badge">Freelance</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Why Choose ON2Tech -->
-    <section class="bg-gray">
+    <section class="bg-white">
       <div class="container">
         <div class="section-header fade-in-up">
-          <h2>Why Choose ON2Tech</h2>
+          <h2>Why Choose <span class="text-gradient">ON2Tech</span></h2>
           <div class="divider"></div>
         </div>
         <div class="grid grid-cols-1 grid-cols-4">
@@ -886,6 +1284,7 @@
               </svg>
             </div>
             <h3 class="card-title">B-BBEE Level 1 Certified</h3>
+            <p class="card-text">Our Level 1 B-BBEE certification demonstrates our commitment to economic transformation and empowerment in South Africa.</p>
           </div>
           <div class="card fade-in-up" data-delay="0.1" style="text-align: center;">
             <div class="card-icon" style="margin: 0 auto;">
@@ -897,6 +1296,7 @@
               </svg>
             </div>
             <h3 class="card-title">Registered on the Central Supplier Database</h3>
+            <p class="card-text">Our CSD registration enables us to work with government entities and ensures compliance with procurement regulations.</p>
           </div>
           <div class="card fade-in-up" data-delay="0.2" style="text-align: center;">
             <div class="card-icon" style="margin: 0 auto;">
@@ -912,10 +1312,11 @@
               </svg>
             </div>
             <h3 class="card-title">Cloud-native & security-first approach</h3>
+            <p class="card-text">We build solutions with cloud technologies and security best practices at their core, ensuring scalability and protection.</p>
           </div>
           <div class="card fade-in-up" data-delay="0.3" style="text-align: center;">
             <div class="card-icon" style="margin: 0 auto;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v4" />
                 <path d="m6.41 6.41 2.83 2.83" />
                 <path d="M2 12h4" />
@@ -927,6 +1328,7 @@
               </svg>
             </div>
             <h3 class="card-title">Track record of innovation, reliability, and compliance</h3>
+            <p class="card-text">Our proven history of delivering innovative solutions while maintaining reliability and regulatory compliance sets us apart.</p>
           </div>
         </div>
       </div>
@@ -938,9 +1340,15 @@
         <div class="section-header fade-in-up" style="color: white;">
           <h2>Let's build your next digital solution.</h2>
           <p style="color: rgba(255, 255, 255, 0.8);">
-            Ready to transform your business with innovative technology solutions? Get in touch with our team today.
+            Ready to transform your business with innovative technology solutions? Whether you need enterprise services or freelance expertise, our team is ready to help.
           </p>
-          <a href="mailto:ntandozungu11@gmail.com" class="btn btn-white btn-lg" style="margin-top: 2rem;">Get in Touch</a>
+          <a href="mailto:ntandozungu11@gmail.com" class="btn btn-white btn-lg btn-icon" style="margin-top: 2rem;">
+            Get in Touch
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -956,7 +1364,7 @@
             <img src="name.png" alt="ON2Tech">
           </div>
           <p class="footer-about">
-            ON2Tech (Pty) Ltd is a South African-based IT solutions provider specializing in software development, web applications, cloud solutions, and digital transformation services.
+            ON2Tech (Pty) Ltd is a South African-based IT solutions provider specializing in software development, web applications, cloud solutions, and digital transformation services. We offer both enterprise solutions and premium freelance services.
           </p>
         </div>
         <div>
@@ -997,6 +1405,7 @@
           <ul class="footer-links">
             <li><a href="#hero">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#freelance">Freelance</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1111,7 +1520,7 @@
     
     // Active navigation highlighting
     function highlightActiveSection() {
-      const sections = ['hero', 'about', 'services', 'team', 'contact'];
+      const sections = ['hero', 'about', 'services', 'freelance', 'team', 'contact'];
       const navLinks = document.querySelectorAll('.nav-link');
       
       let currentSection = '';
